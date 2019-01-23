@@ -1,4 +1,7 @@
+package Bob;
 import java.util.Random;
+
+import Window.Window;
 
 public class Bob {
 	
@@ -22,7 +25,7 @@ public class Bob {
 		setMultp(multp_start());
 		setBet_add(1);
 		setMultp_add(1.02f);
-		Bot.output.add(getMultp());
+		Window.output.add(getMultp());
 	}
 
 	public static int getTotal() {
@@ -82,7 +85,7 @@ public class Bob {
 	}
 	
 	public static void update(Float value) {
-		Bot.input.add(value);
+		Window.input.add(value);
 		if (is_win(value)) 
 			update_win();
 		else
@@ -112,28 +115,28 @@ public class Bob {
 	
 	public static void update_win() {
 		setTotal((int)((getTotal() - getBet()) + (getBet() * getMultp())));
-		Bot.profit.add((int)(-getBet() + (getBet() * getMultp())));
+		Window.profit.add((int)(-getBet() + (getBet() * getMultp())));
 		setGain(getTotal() - temp_total);
 		update_deep();
 		setBet((int)(bet_return_win()));
 		setMultp((float)(multp_return()));
-		Bot.output.add(getMultp());
+		Window.output.add(getMultp());
 
 	}
 	
 	public static void update_lose() {
 		setTotal((int)((getTotal()) - getBet()));
-		Bot.profit.add(-getBet());
+		Window.profit.add(-getBet());
 		setGain(getTotal() - temp_total);
 		update_deep();
 		setBet((int)(bet_return_lose()));
 		setMultp((float)(multp_return()));
-		Bot.output.add(getMultp());
+		Window.output.add(getMultp());
 	}
 	
 
 	private static void update_deep() {
-		if (is_win(Bot.input.get(Bot.input.size() - 1))) {
+		if (is_win(Window.input.get(Window.input.size() - 1))) {
 			if (getBet_add() - 1 > 0) {
 				setBet_add(getBet_add() - 1);
 			}
@@ -153,7 +156,7 @@ public class Bob {
 	}	
 
 	public static int bet_return_lose() {
-		int temp = (int)((Bot.profit.get(Bot.profit.size() - 1)));
+		int temp = (int)((Window.profit.get(Window.profit.size() - 1)));
 		if (temp < 0)
 			temp *= -1;
 		float percent_temp = calcul_percent_bet(temp);
@@ -180,6 +183,15 @@ public class Bob {
 	private static float calcul_percent_profit(float f) {
 		f = (float)((float)(f / 100.00f) + (1.00f + (float)(rd.nextFloat()*getMultp_add())));
 		return f;
+	}
+	
+
+	public static void reset() {
+		setTotal(0);
+		setGain(0);
+		setBet(0);
+		setMultp(1.00f);
+		
 	}
 
 	
