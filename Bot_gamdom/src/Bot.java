@@ -336,42 +336,42 @@ public abstract class Bot implements KeyListener{
 	
 	protected static void display_histo() {
 		
-		if (input.size() >= 1) {		
-			temp_1.setText("[1] - " + df.format(input.get(input.size() - 1)) + " vs " + df.format(output.get(input.size() - 1)) +  "   [ Earn ] = " + profit.get(input.size() - 1));
-			if (input.get(input.size() - 1) < output.get(input.size() - 1))
+		if (profit.size() >= 1) {		
+			temp_1.setText("[1] - " + df.format(input.get(profit.size() - 1)) + " vs " + df.format(output.get(profit.size()  - 1)) +  "   [ Earn ] = " + profit.get(profit.size() - 1));
+			if (input.get(profit.size() - 1) < output.get(profit.size() - 1))
 				temp_1.setForeground(red);
 			else
 				temp_1.setForeground(green);
 		
 		}
 		
-		if (input.size() >= 2) {
-			temp_2.setText("[2] - " + df.format(input.get(input.size() - 2)) + " vs " + df.format(output.get(input.size() - 2)) +  "   [ Earn ] = " + profit.get(input.size() - 2));
-			if (input.get(input.size() - 2) < output.get(input.size() - 2))
+		if (profit.size() >= 2) {
+			temp_2.setText("[2] - " + df.format(input.get(profit.size() - 2)) + " vs " + df.format(output.get(profit.size()  - 2)) +  "   [ Earn ] = " + profit.get(profit.size() - 2));
+			if (input.get(profit.size() - 2) < output.get(profit.size()- 2))
 				temp_2.setForeground(red);
 			else
 				temp_2.setForeground(green);
 		}
-		
-		if (input.size() >= 3) {
-			temp_3.setText("[3] - " + df.format(input.get(input.size() - 3)) + " vs " + df.format(output.get(input.size() - 3)) +  "   [ Earn ] = " + profit.get(input.size() - 3));
-			if (input.get(input.size() - 3) < output.get(input.size() - 3))
+			
+		if (profit.size() >= 3) {
+			temp_3.setText("[3] - " + df.format(input.get(profit.size() - 3)) + " vs " + df.format(output.get(profit.size()  - 3)) +  "   [ Earn ] = " + profit.get(profit.size() - 3));
+			if (input.get(profit.size() - 3) < output.get(profit.size() - 3))
 				temp_3.setForeground(red);
 			else
 				temp_3.setForeground(green);
 		}
 		
-		if (input.size() >= 4) {
-			temp_4.setText("[4] - " + df.format(input.get(input.size() - 4)) + " vs " + df.format(output.get(input.size() - 4)) +  "   [ Earn ] = " + profit.get(input.size() - 4));
-			if (input.get(input.size() - 4) < output.get(input.size() - 4))
+		if (profit.size() >= 4) {
+			temp_4.setText("[4] - " + df.format(input.get(profit.size() - 4)) + " vs " + df.format(output.get(profit.size() - 4)) +  "   [ Earn ] = " + profit.get(profit.size() - 4));
+			if (input.get(profit.size() - 4) < output.get(profit.size()- 4))
 				temp_4.setForeground(red);
 			else
 				temp_4.setForeground(green);
 		}
 		
-		if (input.size() >= 5) {
-			temp_5.setText("[5] - " + df.format(input.get(input.size() - 5)) + " vs " + df.format(output.get(input.size() - 5)) + "   [ Earn ] = " + profit.get(input.size() - 5));
-			if (input.get(input.size() - 5) <= output.get(input.size() - 5))
+		if (profit.size() >= 5) {
+			temp_5.setText("[5] - " + df.format(input.get(profit.size() - 5)) + " vs " + df.format(output.get(profit.size() - 5)) + "   [ Earn ] = " + profit.get(profit.size() - 5));
+			if (input.get(profit.size() - 5) <= output.get(profit.size() - 5))
 				temp_5.setForeground(red);
 			else
 				temp_5.setForeground(green);
