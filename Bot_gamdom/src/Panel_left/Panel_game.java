@@ -14,10 +14,11 @@ public class Panel_game extends JPanel {
 	public static JLabel gain = new JLabel("0", JLabel.CENTER);
 	public static JLabel total = new JLabel("0", JLabel.CENTER);
 	public static JTextField champs_float = new JTextField();
+
 	
 	public static void setup() {
 		champs_float.addKeyListener(new Key_listener() {});
-		Window.panel_game.setLayout(new GridLayout(7, 1));
+		Window.panel_game.setLayout(new GridLayout(9, 2));
 		Window.panel_game.add(champs_float);
 		Window.panel_game.add(new JLabel("Total", JLabel.CENTER));
 		Window.panel_game.add(total);

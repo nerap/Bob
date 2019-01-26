@@ -1,4 +1,5 @@
 package Window;
+import Main.Main;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.text.DecimalFormat;
@@ -8,7 +9,6 @@ import java.util.Collection;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import Main;
 import Bob.Bob;
 import Historique.Histo_pan;
 import MenuBar.Menu_bar;
@@ -69,6 +69,8 @@ public class Window extends JFrame{
 		Main.fenetre.setLocationRelativeTo(null);
 		Main.fenetre.setVisible(true);
 		//Main.fenetre.pack();
+		
+		launch();
 	}
 	
 

@@ -6,25 +6,34 @@ import Window.Window;
 public class Bob {
 	
 	private static int total;
-	private static int gain = 0;
+	private static int gain;
 	private static int bet;
 	private static float multp;
 	private static int bet_add;
 	private static float multp_add;
+	private static float bet_greed;
+	private static float multp_greed;
 	private static float temp_percent;
 	public static int temp_total;
+	private static int max_gain;
+	private static int max_loss;
+	private static int time;
 	
 	
 	public static Random rd = new Random();
 	
 	
-	Bob(int total){
+	public Bob(int total, float bet_greed, float multp_greed,int max_profit , int max_loss , int time){
 		setTotal(total);
 		temp_total = total;
+		setGain(0);
 		setBet(bet_start(total));
 		setMultp(multp_start());
 		setBet_add(1);
 		setMultp_add(1.02f);
+		setMax_gain(max_profit);
+		setMax_loss(max_loss);
+		setTime(time);
 		Window.output.add(getMultp());
 	}
 
@@ -83,6 +92,47 @@ public class Bob {
 	public static void setTemp_percent(float temp_percent) {
 		Bob.temp_percent = temp_percent;
 	}
+	
+	public static int getMax_gain() {
+		return max_gain;
+	}
+
+	public static void setMax_gain(int max_gain) {
+		Bob.max_gain = max_gain;
+	}
+
+	public static int getMax_loss() {
+		return max_loss;
+	}
+
+	public static void setMax_loss(int max_loss) {
+		Bob.max_loss = max_loss;
+	}
+
+	public static int getTime() {
+		return time;
+	}
+
+	public static void setTime(int time) {
+		Bob.time = time;
+	}
+
+	public static float getBet_greed() {
+		return bet_greed;
+	}
+
+	public static void setBet_greed(float bet_greed) {
+		Bob.bet_greed = bet_greed;
+	}
+
+	public static float getMultp_greed() {
+		return multp_greed;
+	}
+
+	public static void setMultp_greed(float multp_greed) {
+		Bob.multp_greed = multp_greed;
+	}
+
 	
 	public static void update(Float value) {
 		Window.input.add(value);
@@ -161,7 +211,7 @@ public class Bob {
 			temp *= -1;
 		float percent_temp = calcul_percent_bet(temp);
 		int add = (int)((float)(percent_temp/100) * temp);
-		setTemp_percent((float)(110.00f - percent_temp));	
+		setTemp_percent((float)(100.00f + (float)(5 *(getMultp_greed() * rd.nextFloat())) - percent_temp));	
 		return temp + add;
 	}
 	
@@ -170,7 +220,7 @@ public class Bob {
 	}
 	
 	private static float calcul_percent_bet(int temp) {
-		float percent_deep = (float)(25 + getBet_add() + rd.nextFloat());
+		float percent_deep = (float)((20 + (getBet_greed() * rd.nextFloat())) + getBet_add());
 		return percent_deep;
 	}
 
@@ -194,6 +244,8 @@ public class Bob {
 		
 	}
 
+	
+	
 	
 
 	
