@@ -48,6 +48,8 @@ public class Window extends JFrame{
 		output = new ArrayList<Float>();
 		profit = new ArrayList<Integer>();
 		
+		Main.fenetre = new Window("Bob");
+		
 		Main.fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Main.fenetre.setSize(400, 250);
 		
@@ -69,8 +71,6 @@ public class Window extends JFrame{
 		Main.fenetre.setLocationRelativeTo(null);
 		Main.fenetre.setVisible(true);
 		//Main.fenetre.pack();
-		
-		launch();
 	}
 	
 

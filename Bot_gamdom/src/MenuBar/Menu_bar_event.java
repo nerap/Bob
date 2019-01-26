@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 
 import Bob.Bob;
 import Dialog.Dialog;
-import Display.Display;
 import Panel_left.Panel_start;
 import Window.Window;
 
@@ -24,7 +23,8 @@ public class Menu_bar_event implements ActionListener{
 		&& Panel_start.valid_float(bet_greed) == true &&  Panel_start.valid_float(multp_greed)) {
 			Menu_bar.menu_item_start.setEnabled(false);
 			Menu_bar.menu_item_reset.setEnabled(true);
-			
+			Menu_bar.menu_item_play.setEnabled(true);
+			Menu_bar.menu_exit.setEnabled(true);
 			
 			Panel_start.champs_int.setEnabled(false);
 			Panel_start.champs_bet_greed.setEnabled(false);
@@ -35,11 +35,12 @@ public class Menu_bar_event implements ActionListener{
 			
 
 	    	Main.bot = new Bob(Integer.valueOf(total), Float.valueOf(bet_greed), Float.valueOf(multp_greed),Integer.valueOf(max_profit),Integer.valueOf(max_loss),Integer.valueOf(time));
-	    	Display.display_update();
 	    	Window.game_start = true;
 	    	Window.launch();
 		}
 		else
 			Dialog.help();
+		return;
+			
 	}
 }

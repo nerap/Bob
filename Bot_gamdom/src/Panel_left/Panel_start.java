@@ -27,30 +27,24 @@ public class Panel_start extends JPanel{
 
 	public static void setup() {
 		champs_int.setPreferredSize(new Dimension(120,20));
-		champs_int.addKeyListener(new Key_listener() {});
 		champs_int.addMouseListener(new Mouse_listener() {});
 		
 
 		champs_bet_greed.setPreferredSize(new Dimension(120,20));
-		champs_bet_greed.addKeyListener(new Key_listener() {});
 		champs_bet_greed.addMouseListener(new Mouse_listener() {});
 		
 		
 		champs_multp_greed.setPreferredSize(new Dimension(120,20));
-		champs_multp_greed.addKeyListener(new Key_listener() {});
 		champs_multp_greed.addMouseListener(new Mouse_listener() {});
 			
 		
 		champs_max_profit.setPreferredSize(new Dimension(120,20));
-		champs_max_profit.addKeyListener(new Key_listener() {});
 		champs_max_profit.addMouseListener(new Mouse_listener() {});
 		
 		champs_max_loss.setPreferredSize(new Dimension(120,20));
-		champs_max_loss.addKeyListener(new Key_listener() {});
 		champs_max_loss.addMouseListener(new Mouse_listener() {});
 		
 		champs_time.setPreferredSize(new Dimension(120,20));
-		champs_time.addKeyListener(new Key_listener() {});
 		champs_time.addMouseListener(new Mouse_listener() {});
 		
 		
@@ -70,7 +64,7 @@ public class Panel_start extends JPanel{
 	public static boolean valid_int(String text) throws NumberFormatException {
 		try {
 			Integer temp = Integer.parseInt(text);
-			if (temp >= 500 && temp <= 500000)
+			if (temp >= 10 && temp <= 500000)
 				return true;	
 		}
 		catch (NumberFormatException e) {
