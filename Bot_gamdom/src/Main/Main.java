@@ -7,7 +7,7 @@ import Window.Window;
 public class Main {
 	public static Bob bot;
 	public static Window fenetre;
-	public static int turny = 0;
+	public static int turny = 1;
 
 	public static void main(String[] args) {
 		setup();
@@ -26,17 +26,16 @@ public class Main {
 	public static void game() {
 		while (Window.game_start == false) {
 			try {
-				Thread.sleep(1500);
-			}
-			catch(Exception e) {
-				System.out.println("hi");
+				Thread.sleep(750);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
 			}
 		}
-		for (int i= 0; i < Bob.getTime(); i++) {
+		do {
 			Main.update();
-			turny++;
-		}	
-		Main.end();
+			turny += 1;
+		} while(Window.game_start == true && turny < 10 && Bob.getGain() < Bob.getMax_gain() && -Bob.getMax_loss() < Bob.getGain());
+		end();
 	}
 	
 	public static void update() {
